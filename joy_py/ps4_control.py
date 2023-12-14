@@ -34,12 +34,13 @@ class Ps4_control(Node):
 
 
     def cmd_vel_callback(self, msg):
-        self.get_logger().info("Controle manette")
-        speed=10
+        #self.get_logger().info("Controle manette")
+        speed=1
         #PUBLISH SUR cmd_VEL
         cmdvel=Twist()
         cmdvel.linear.x=msg.axes[J_LV]*speed #J_LV
-        cmdvel.angular.z=msg.axes[J_LH]*speed #J_LH
+        cmdvel.linear.y=msg.axes[J_LH]*speed #J_LH
+        cmdvel.linear.z=msg.axes[J_RV]*speed #J_RV
 
         self.pub_cmd_vel.publish(cmdvel)
 
