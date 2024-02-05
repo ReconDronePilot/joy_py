@@ -41,6 +41,7 @@ class Ps4_control(Node):
         cmdvel.linear.x=msg.axes[J_LV]*speed #J_LV
         cmdvel.linear.y=msg.axes[J_LH]*speed #J_LH
         cmdvel.linear.z=msg.axes[J_RV]*speed #J_RV
+        cmdvel.angular.z=msg.axes[J_RH]*speed #J_RH
 
         self.pub_cmd_vel.publish(cmdvel)
 
